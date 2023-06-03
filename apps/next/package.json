@@ -1,0 +1,30 @@
+{
+  "name": "web-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "cd ../.. && yarn build && cd apps/next && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "check-types": "tsc --noemit"
+  },
+  "dependencies": {
+    "@tamagui/next-theme": "latest",
+    "next": "13.2.4",
+    "raf": "^3.4.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native-web": "^0.18.12"
+  },
+  "devDependencies": {
+    "@tamagui/next-plugin": "latest",
+    "@types/node": "^18.15.5",
+    "eslint-config-next": "^13.2.4",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "next-transpile-modules": "^10.0.0",
+    "react-native": "0.71.8",
+    "url-loader": "^4.1.1"
+  }
+}

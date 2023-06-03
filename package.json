@@ -1,0 +1,47 @@
+{
+  "name": "tamagui-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "web": "DEBUG=tamagui yarn build && cd apps/next && yarn next",
+    "web:prod": "yarn workspace web-app build",
+    "watch": "yarn turbo run watch --filter=ui",
+    "build": "yarn workspaces foreach --exclude web-app --exclude sb-react -pi run build",
+    "build:web": "yarn turbo run build --filter=web-app",
+    "start:web": "yarn turbo run start --filter=web-app",
+    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest",
+    "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary",
+    "doctor": "yarn turbo run doc",
+    "check-types": "yarn turbo run check-types",
+    "check-deps": "check-dependency-version-consistency .",
+    "rm:nodemodule": "rm -rf node_modules apps/expo/node_modules apps/next/node_modules packages/ui/node_modules yarn.lock apps/storybook-react/node_modules apps/storybook-react-native/node_modules apps/storybook-react/dist"
+  },
+  "resolutions": {
+    "esbuild": "0.17.17",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-refresh": "^0.14.0",
+    "typescript": "5.0.4",
+    "react-native-web": "0.18.12",
+    "webpack": "^5.74.0",
+    "@tamagui/core": "1.30.19",
+    "@tamagui/web": "1.30.19",
+    "tamagui": "1.30.19"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.21.0",
+    "node-gyp": "^9.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.38",
+    "check-dependency-version-consistency": "^3.0.3",
+    "eslint": "^8.36.0",
+    "prettier": "^2.8.7",
+    "turbo": "^1.8.5",
+    "typescript": "5.0.4"
+  },
+  "packageManager": "yarn@3.5.0"
+}
